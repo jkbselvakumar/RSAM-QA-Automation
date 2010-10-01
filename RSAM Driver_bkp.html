@@ -1,0 +1,153 @@
+<html>
+<head><title>RSAM Driver - Automation</title></head>
+<script language = "vbscript">
+'===============================================================================================
+Public Function Window_OnLoad()
+	htmlfullPath = window.location.href
+	htmlParentPath = Split(htmlfullPath,":///")
+	htmlrootPath = Split(htmlParentPath(1),"/")
+	dbFileName = htmlrootPath(0)&"\"&htmlrootPath(1)&"\RSAM_Automation_Documentation\RSAM_Script_Names.xls"
+	Dim cntQuery, resQuery
+	cntQuery = "Select count(*) from All_Scripts"
+	resQuery = "Select Script_Names,Description From All_Scripts"
+	'document.getElementById("btn").disabled = "True"
+	'document.getElementById("unbtn").disabled = "False"
+	Set Table = Document.CreateElement("TABLE")
+	Document.Body.AppendChild(Table)
+	Table.AppendChild(Document.CreateElement("TBODY"))
+	Table.ID = "tbl"
+	Table.Align = "center"
+	Table.Border = "1"
+	Table.BorderColor = "#333333"
+	Table.Width = "90%"
+	Table.Height = "3%"
+	Table.CellSpacing = "1"
+	Table.Cellpadding = "0"
+	Table.InsertRow(0)
+	For i = 0 To 5
+		Table.Rows(0).InsertCell(i)
+		Table.Rows(0).Cells(i).Align = "Center"
+		Table.Rows(0).Cells(i).Style.FontSize = "11"
+		Table.Rows(0).Cells(i).Style.FontFamily = "verdana"
+		Table.Rows(0).Cells(i).Style.BackGroundColor = "Gold"
+	Next
+	Table.Rows(0).Cells(0).innerHTML = "Sl.No"
+	Table.Rows(0).Cells(0).Width = "5%"
+	Table.Rows(0).Cells(1).innerHTML = "Script Name"
+	Table.Rows(0).Cells(1).Width = "17%"
+	Table.Rows(0).Cells(2).innerHTML = "Script Description"
+	Table.Rows(0).Cells(3).innerHTML = "Browser"
+	Table.Rows(0).Cells(3).Width = "8%"
+	Table.Rows(0).Cells(4).innerHTML = "RSAM Version"
+	Table.Rows(0).Cells(4).Width = "9%"
+	Table.Rows(0).Cells(5).innerHTML = "Execute"
+	Table.Rows(0).Cells(5).Width = "5%"
+	Dim connectString
+	connectString = "Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq="&dbFileName&";"
+	Set myConnection = CreateObject("ADODB.Connection")
+	Set RSTitleList = CreateObject("ADODB.Recordset")
+	myConnection.Open connectString
+	Set RSTitleCount =  myConnection.Execute(cntQuery)
+	Set RSTitleList =  myConnection.Execute(resQuery)
+	cnt = RSTitleCount.GetString()
+	For j = 1 To cnt
+		Table.InsertRow(j)
+		If not RStitleList.EOF  Then
+			For i = 0 To 5
+				Table.Rows(j).InsertCell(i)
+				If i = 5 Then
+					Table.Rows(j).Cells(i).Align = "Center"
+				End If
+				Table.Rows(j).Cells(i).Style.FontSize = "11"
+				Table.Rows(j).Cells(i).Style.FontFamily = "verdana"
+			Next
+			Table.Rows(j).Cells(0).innerHTML = j
+			Table.Rows(j).Cells(1).innerHTML = RStitleList("Script_Names")
+			Table.Rows(j).Cells(2).innerHTML = RStitleList("Description")
+			Table.Rows(j).Cells(3).innerHTML = "<select name='Browser'style='font-size:9px; height:18; border: 1px; background: White; width:100%;'><option value='IE6'  selected='selected'>IE</option><option value='firefox'>FireFox</option><option value='Chrome'>Chrome</option></select>"
+			Table.Rows(j).Cells(4).innerHTML = "<select name='Version' style='font-size:9px; height:18; border: 1px; background: White; width:100%;'><option value='RSAM7.2'  selected='selected'>RSAM 7.2</option><option value='RSAM7.1'>RSAM 7.1</option><option value='RSAM6.0'>RSAM 6.0</option></select>"
+			Table.Rows(j).Cells(5).innerHTML = "<input type = 'Checkbox'id = chk"&j&">"
+			RSTitleList.MoveNext
+		End If
+	Next
+	Dim rowcounts, scriptnames
+		rowcounts = document.getElementById("tbl").rows.length
+	For i = 1 to rowcounts-1
+		scriptnames = document.getElementById("tbl").rows(i).Cells(1).innerHTML
+		If scriptnames = "RSAM_Env" or scriptnames = "RSAM_Login_Suite" Then
+			document.getElementById("chk"&i&"").checked = TRUE
+			document.getElementById("chk"&i&"").disabled = TRUE
+		End If
+	Next
+End Function
+'===============================================================================================
+Function CheckAll()
+	Dim rowcount
+	rowcount = document.getElementById("tbl").rows.length
+	For i = 1 to rowcount-1
+		document.getElementById("chk"&i&"").checked = TRUE
+	Next
+End Function
+'===============================================================================================
+Function UnCheckAll()
+	Dim rowcount, scriptnames
+	rowcount = document.getElementById("tbl").rows.length
+	For i = 1 to rowcount-1
+		scriptnames = document.getElementById("tbl").rows(i).Cells(1).innerHTML
+		If scriptnames = "RSAM_Env" or scriptnames = "RSAM_Login_Suite" Then
+		Else
+			document.getElementById("chk"&i&"").checked = FALSE
+		End If
+	Next
+End Function
+'===============================================================================================
+Function Generate_Batch()
+	Dim val,scriptname,rc, WShell,fg
+	fg = 0
+	j = 0
+	rc = document.getElementById("tbl").rows.length
+	scriptname = "RSAM_Add_COCKPIT"
+	htmlfullPath = window.location.href
+	htmlParentPath = Split(htmlfullPath,":///")
+	htmlrootPath = Split(htmlParentPath(1),"/")
+	BatchFileName = htmlrootPath(0)&"\"&htmlrootPath(1)&"\RSAM_Automation_Documentation\RSAM_BatchFile.mtb"
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set f1 = fso.CreateTextFile(BatchFileName, True)
+	f1.WriteLine("[Files]")
+	For i = 1 to rc-1
+			chkst = document.getElementById("chk"&i&"").checked
+			If chkst = TRUE Then
+				scriptname = document.getElementById("tbl").rows(i).Cells(1).innerHTML
+				j = j+1
+				f1.WriteLine("File"&j&"="&htmlrootPath(0)&"\"&htmlrootPath(1)&"\RSAM_Scripts\"&scriptname&";1")
+				fg = 1
+			End If
+	Next
+	f1.WriteLine("NumberOfFiles="&j)
+	f1.close
+	If fg = 1 Then
+		Msgbox "Selections can be Changed in the Batch File." &vbcrlf& "Hit F5 on the Batch File to Start Execution",64,"RSAM Driver"
+		Set WShell = CreateObject("Wscript.Shell")
+		WShell.Run htmlrootPath(0)&"\"&htmlrootPath(1)&"\RSAM_Automation_Documentation\RSAM_BatchFile.mtb"
+		Set WShell = Nothing
+	Else
+		Msgbox "Batch File not generated." &vbcrlf& "Atleast one script should be selected to generate a Batch.",16,"RSAM Driver"
+	End IF
+	window.opener="X"
+    window.open "","_parent",""
+    window.close()
+End Function
+'===============================================================================================
+</script>
+<body>
+<center>
+<table border='1' id='tbl1' bordercolor='black' background='images\RSAMDriver.bmp' width = 90% height = 13%><tr><td></td></tr></table>
+</center>
+<form name = "vbsmailsend" method = "post">
+	<Button type = "button" alt = "Generate Batch" onClick="Generate_Batch()" name="GenerateBatch" style = "position:absolute;left:6%; top:16%">Generate Batch</Button><br>
+	<a title = "UnChecks all" name="UnSelectAll" onClick="UnCheckAll()" onMouseOver = "style.cursor='hand'" style = "position:absolute;left:82%; top:17.5%;color: #0033FF; font-family: Verdana; font-size:11"><u>UnSelect All</u></a>
+	<a title = "Checks all" name="SelectAll" onClick="CheckAll()" onMouseOver = "style.cursor='hand'" style = "position:absolute;left:89%; top:17.5%;color: #0033FF; font-family: Verdana; font-size:11"><u>Select All</u></a>
+<center>
+</form>
+</body>
+</html>

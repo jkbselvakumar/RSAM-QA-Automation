@@ -1,0 +1,5 @@
+[Files]
+File1=D:\RSAM_Automation_FrameWork\RSAM_Scripts\RSAM_Env;1
+File2=D:\RSAM_Automation_FrameWork\RSAM_Scripts\RSAM_Login_Suite;1
+File3=D:\RSAM_Automation_FrameWork\RSAM_Scripts\RSAM_Attribute_Suite;1
+NumberOfFiles=3

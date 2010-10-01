@@ -1,0 +1,1216 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED qcserver CDATA #IMPLIED qcproject CDATA #IMPLIED  >
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,AdditionalInfo*,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName,Res,DVer?,TSet?,TInst?,RunType?,DT?,AdditionalInfo*,Step*,DIter*,Step*,Action*,Summary?,TestMaintenanceSummary*,NodeArgs?) >
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT AdditionalInfo (AdditionalDataName,AdditionalDataValue ) >
+
+<!ELEMENT AdditionalDataName ( #PCDATA ) >
+
+<!ELEMENT AdditionalDataValue ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step?,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,ActionMaintenanceSummary*,NodeArgs ) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT TestMaintenanceSummary (ActionMaintenanceSummary*) >
+<!ATTLIST TestMaintenanceSummary ObjectsAdded CDATA #REQUIRED ObjectsUpdated CDATA #REQUIRED StepsUpdated CDATA #REQUIRED StepsComments CDATA #REQUIRED><!ELEMENT ActionMaintenanceSummary (ObjectChange* ) >
+<!ATTLIST ActionMaintenanceSummary Action CDATA #REQUIRED Objects CDATA #REQUIRED Updated CDATA #REQUIRED LinesTotal CDATA #REQUIRED Added CDATA #REQUIRED LinesUpdated CDATA #REQUIRED>
+
+<!ELEMENT ObjectChange  (Hierarchy, PropertyChangeList* ) >
+<!ATTLIST ObjectChange Operation CDATA #IMPLIED OriginalRepository CDATA #IMPLIED>
+
+<!ELEMENT PropertyChangeList (PropertyDef*) >
+
+<!ELEMENT PropertyDef (OriginalValue, NewValue) >
+<!ATTLIST PropertyDef PropName CDATA #REQUIRED OriginRegularExpression (True|False) "False" NewRegularExpression (True|False) "False" AddedProperty (True|False) "False" >
+
+<!ELEMENT OriginalValue ( #PCDATA )>
+
+<!ELEMENT NewValue ( #PCDATA )>
+
+<!ELEMENT Hierarchy  (ObjectName, Hierarchy*) >
+<!ATTLIST Hierarchy MicClass CDATA #REQUIRED>
+
+<!ELEMENT ObjectName  ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,TimeTick* ,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,TimeTick*,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT TimeTick ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?)>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED MovieMarker CDATA "">
+<!ATTLIST NodeArgs Source CDATA #IMPLIED SourceLine CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+>
+<Report ver="2.0" tmZone="India Standard Time">
+<General productName="QuickTest Professional" productVer="10.00" os="Windows XP" host="WBL06802"><DocLocation><![CDATA[D:\RSAM_Automation_FrameWork\RSAM_Scripts\RSAM_Control_Suite]]></DocLocation></General>
+<Doc rID="T1"   productName= "QuickTest Professional"  >
+<DName><![CDATA[RSAM_Control_Suite]]></DName>
+<Res><![CDATA[Res20]]></Res>
+<DT rID="T2">
+<NodeArgs eType="Table" icon="2" nRep="4" filter="False" >
+<Disp><![CDATA[Run-Time Data Table]]></Disp>
+<BtmPane vType="Table">
+<Path><![CDATA[Default.xls]]></Path>
+</BtmPane>
+</NodeArgs>
+</DT>
+<AdditionalInfo>
+<AdditionalDataName><![CDATA[Web Services Run Toolkit]]></AdditionalDataName>
+<AdditionalDataValue><![CDATA[.NET Framework 2.0 WSE 3.0]]></AdditionalDataValue>
+</AdditionalInfo>
+<DIter rID="T3" iterID="1" >
+<Action rID="T4">
+<AName><![CDATA[RSAM_Add_Control]]></AName>
+<Step rID="T5">
+<Obj plainTxt="False" ><![CDATA[[ WebTable ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:26]]></Time>
+<TimeTick>1285768226</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="11" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[[ WebTable ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T6">
+<Obj plainTxt="False" ><![CDATA["[  Home  ]":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:31]]></Time>
+<TimeTick>1285768231</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="14" >
+<Disp><![CDATA["[  Home  ]":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T7">
+<Obj plainTxt="False" ><![CDATA[[  Home  ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:32]]></Time>
+<TimeTick>1285768232</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="16" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="218" >
+<Disp><![CDATA[[  Home  ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:34]]></Time>
+<TimeTick>1285768234</TimeTick>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[RSAM Home]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:34]]></Time>
+<TimeTick>1285768234</TimeTick>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[[  Home  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:34]]></Time>
+<TimeTick>1285768234</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="20" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[[  Home  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA["[  Manage  ]":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:35]]></Time>
+<TimeTick>1285768235</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="23" >
+<Disp><![CDATA["[  Manage  ]":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[[  Manage  ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:35]]></Time>
+<TimeTick>1285768235</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="25" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="218" >
+<Disp><![CDATA[[  Manage  ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[[ Users/Groups  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:36]]></Time>
+<TimeTick>1285768236</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="27" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Users/Groups  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[[ Permission Assignments  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:37]]></Time>
+<TimeTick>1285768237</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="30" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Permission Assignments  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[[ WebTable ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:39]]></Time>
+<TimeTick>1285768239</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="36" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ WebTable ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[[ Offline Data Gathering  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:40]]></Time>
+<TimeTick>1285768240</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="38" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Offline Data Gathering  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[[ RSAM Scheduler  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:41]]></Time>
+<TimeTick>1285768241</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="41" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ RSAM Scheduler  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[[ UCF Control Allocation  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:42]]></Time>
+<TimeTick>1285768242</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="44" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ UCF Control Allocation  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[[ Administration  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:43]]></Time>
+<TimeTick>1285768243</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="47" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Administration  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T20">
+<Obj plainTxt="False" ><![CDATA["[ Administration  ]":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:44]]></Time>
+<TimeTick>1285768244</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="50" >
+<Disp><![CDATA["[ Administration  ]":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[[ Administration ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:44]]></Time>
+<TimeTick>1285768244</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="52" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="238" >
+<Disp><![CDATA[[ Administration ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="19" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[RSAM Home]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:46]]></Time>
+<TimeTick>1285768246</TimeTick>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[Controls.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:46]]></Time>
+<TimeTick>1285768246</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="56" Source="RSAM_Add_Control" SourceLine="47" >
+<Disp><![CDATA[Controls.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[ControlsFrame]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:50]]></Time>
+<TimeTick>1285768250</TimeTick>
+<Step rID="T25">
+<Obj plainTxt="False" ><![CDATA[Control Types (questions).Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:50]]></Time>
+<TimeTick>1285768250</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="58" Source="RSAM_Add_Control" SourceLine="48" >
+<Disp><![CDATA[Control Types (questions).Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="57" Source="RSAM_Add_Control" SourceLine="48" >
+<Disp><![CDATA[ControlsFrame]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="55" Source="RSAM_Add_Control" SourceLine="47" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="18" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[RSAM]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T26">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Invalid procedure call or argument<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (92): &quot;	Set file_append = fso.OpenTextFile(File_Name, ForAppending,False)&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:20:50]]></Time>
+<TimeTick>1285768250</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="59" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="91" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T27">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (93): &quot;	file_append.Write &quot;&lt;tr onClick=(this.bgColor='Yellow') onMouseover=(this.bgColor='LightBlue') onMouseout=(this.bgColor='#FFFFFF')&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;SlNumber&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;TestCase_ID&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Step_Description&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Expected_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Actual_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Time&amp;&quot;&lt;/td&gt;&quot;&amp;Result_Val&amp;&quot;&quot;&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:07]]></Time>
+<TimeTick>1285768267</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="60" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="92" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T28">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (94): &quot;	file_append.Close&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:08]]></Time>
+<TimeTick>1285768268</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="61" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="93" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T29">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:09]]></Time>
+<TimeTick>1285768269</TimeTick>
+<Step rID="T30">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:09]]></Time>
+<TimeTick>1285768269</TimeTick>
+<Step rID="T31">
+<Obj plainTxt="False" ><![CDATA[ControlsFrame]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:09]]></Time>
+<TimeTick>1285768269</TimeTick>
+<Step rID="T32">
+<Obj plainTxt="False" ><![CDATA["Add"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Add<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (65 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Add<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xlnkAddCtrlQ<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Add<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xlnkAddCtrlQ','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:09]]></Time>
+<TimeTick>1285768269</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="65" Source="RSAM_Add_Control" SourceLine="53" >
+<Disp><![CDATA["Add"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T33">
+<Obj plainTxt="False" ><![CDATA["Edit"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Edit<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (65 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Edit<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xlnkEditCtrlQ<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Edit<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xlnkEditCtrlQ','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:09]]></Time>
+<TimeTick>1285768269</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="66" Source="RSAM_Add_Control" SourceLine="54" >
+<Disp><![CDATA["Edit"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T34">
+<Obj plainTxt="False" ><![CDATA["Delete"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Delete<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (65 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Delete<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xlnkDelCtrlType<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Delete<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xlnkDelCtrlType','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:09]]></Time>
+<TimeTick>1285768269</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="67" Source="RSAM_Add_Control" SourceLine="55" >
+<Disp><![CDATA["Delete"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="64" Source="RSAM_Add_Control" SourceLine="53" >
+<Disp><![CDATA[ControlsFrame]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="63" Source="RSAM_Add_Control" SourceLine="53" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="62" Source="RSAM_Add_Control" SourceLine="53" >
+<Disp><![CDATA[RSAM]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T35">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Invalid procedure call or argument<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (92): &quot;	Set file_append = fso.OpenTextFile(File_Name, ForAppending,False)&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:10]]></Time>
+<TimeTick>1285768270</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="68" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="91" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T36">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (93): &quot;	file_append.Write &quot;&lt;tr onClick=(this.bgColor='Yellow') onMouseover=(this.bgColor='LightBlue') onMouseout=(this.bgColor='#FFFFFF')&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;SlNumber&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;TestCase_ID&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Step_Description&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Expected_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Actual_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Time&amp;&quot;&lt;/td&gt;&quot;&amp;Result_Val&amp;&quot;&quot;&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:11]]></Time>
+<TimeTick>1285768271</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="69" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="92" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T37">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (94): &quot;	file_append.Close&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:12]]></Time>
+<TimeTick>1285768272</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="70" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="93" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T38">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:13]]></Time>
+<TimeTick>1285768273</TimeTick>
+<Step rID="T39">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:13]]></Time>
+<TimeTick>1285768273</TimeTick>
+<Step rID="T40">
+<Obj plainTxt="False" ><![CDATA[ControlsFrame]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:13]]></Time>
+<TimeTick>1285768273</TimeTick>
+<Step rID="T41">
+<Obj plainTxt="False" ><![CDATA["left"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (19 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=Image<br>image type=Plain Image<br>html tag=IMG<br>alt=<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (23 objects found)&nbsp;</FONT></u><br>
+micclass=Image<br>html tag=IMG<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+alt=<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>image type=Plain Image<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>html id=ximgLeftIndent<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>name=Image<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>file name=left.jpeg<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>class=<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>width=22<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>height=10<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:13]]></Time>
+<TimeTick>1285768273</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="74" Source="RSAM_Add_Control" SourceLine="61" >
+<Disp><![CDATA["left"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T42">
+<Obj plainTxt="False" ><![CDATA[left.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:13]]></Time>
+<TimeTick>1285768273</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="75" Source="RSAM_Add_Control" SourceLine="61" >
+<Disp><![CDATA[left.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T43">
+<Obj plainTxt="False" ><![CDATA["right"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (19 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=Image<br>image type=Plain Image<br>html tag=IMG<br>alt=<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (23 objects found)&nbsp;</FONT></u><br>
+micclass=Image<br>html tag=IMG<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+alt=<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>image type=Plain Image<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>html id=ximgRightIndent<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>name=Image<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>file name=right.jpg<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>class=<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>width=22<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>height=10<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:13]]></Time>
+<TimeTick>1285768273</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="76" Source="RSAM_Add_Control" SourceLine="61" >
+<Disp><![CDATA["right"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T44">
+<Obj plainTxt="False" ><![CDATA[right.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:13]]></Time>
+<TimeTick>1285768273</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="77" Source="RSAM_Add_Control" SourceLine="61" >
+<Disp><![CDATA[right.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="73" Source="RSAM_Add_Control" SourceLine="61" >
+<Disp><![CDATA[ControlsFrame]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="72" Source="RSAM_Add_Control" SourceLine="61" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="71" Source="RSAM_Add_Control" SourceLine="61" >
+<Disp><![CDATA[RSAM]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T45">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Invalid procedure call or argument<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (92): &quot;	Set file_append = fso.OpenTextFile(File_Name, ForAppending,False)&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:14]]></Time>
+<TimeTick>1285768274</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="78" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="91" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T46">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (93): &quot;	file_append.Write &quot;&lt;tr onClick=(this.bgColor='Yellow') onMouseover=(this.bgColor='LightBlue') onMouseout=(this.bgColor='#FFFFFF')&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;SlNumber&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;TestCase_ID&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Step_Description&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Expected_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Actual_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Time&amp;&quot;&lt;/td&gt;&quot;&amp;Result_Val&amp;&quot;&quot;&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:15]]></Time>
+<TimeTick>1285768275</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="79" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="92" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T47">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (94): &quot;	file_append.Close&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:16]]></Time>
+<TimeTick>1285768276</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="80" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="93" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T48">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:17]]></Time>
+<TimeTick>1285768277</TimeTick>
+<Step rID="T49">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:17]]></Time>
+<TimeTick>1285768277</TimeTick>
+<Step rID="T50">
+<Obj plainTxt="False" ><![CDATA[ControlsFrame]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:17]]></Time>
+<TimeTick>1285768277</TimeTick>
+<Step rID="T51">
+<Obj plainTxt="False" ><![CDATA[Add.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:17]]></Time>
+<TimeTick>1285768277</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="86" Source="RSAM_Add_Control" SourceLine="70" >
+<Disp><![CDATA[Add.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="85" Source="RSAM_Add_Control" SourceLine="70" >
+<Disp><![CDATA[ControlsFrame]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T52">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:19]]></Time>
+<TimeTick>1285768279</TimeTick>
+<Step rID="T53">
+<Obj plainTxt="False" ><![CDATA[xchkUpdateMultiple.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:19]]></Time>
+<TimeTick>1285768279</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="90" Source="RSAM_Add_Control" SourceLine="72" >
+<Disp><![CDATA[xchkUpdateMultiple.Set]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="89" Source="RSAM_Add_Control" SourceLine="72" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="84" Source="RSAM_Add_Control" SourceLine="70" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="83" Source="RSAM_Add_Control" SourceLine="70" >
+<Disp><![CDATA[RSAM]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T54">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Invalid procedure call or argument<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (92): &quot;	Set file_append = fso.OpenTextFile(File_Name, ForAppending,False)&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:19]]></Time>
+<TimeTick>1285768279</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="91" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="91" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T55">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (93): &quot;	file_append.Write &quot;&lt;tr onClick=(this.bgColor='Yellow') onMouseover=(this.bgColor='LightBlue') onMouseout=(this.bgColor='#FFFFFF')&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;SlNumber&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;TestCase_ID&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Step_Description&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Expected_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Actual_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Time&amp;&quot;&lt;/td&gt;&quot;&amp;Result_Val&amp;&quot;&quot;&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:23]]></Time>
+<TimeTick>1285768283</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="92" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="92" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T56">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (94): &quot;	file_append.Close&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:24]]></Time>
+<TimeTick>1285768284</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="93" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="93" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T57">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:25]]></Time>
+<TimeTick>1285768285</TimeTick>
+<Step rID="T58">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:25]]></Time>
+<TimeTick>1285768285</TimeTick>
+<Step rID="T59">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:25]]></Time>
+<TimeTick>1285768285</TimeTick>
+<Step rID="T60">
+<Obj plainTxt="False" ><![CDATA[ControlType_Name.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlTyp1_aixd"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:25]]></Time>
+<TimeTick>1285768285</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="99" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[ControlType_Name.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T61">
+<Obj plainTxt="False" ><![CDATA[Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:25]]></Time>
+<TimeTick>1285768285</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="101" Source="RSAM_Add_Control" SourceLine="78" >
+<Disp><![CDATA[Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T62">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["This is for ControlType"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:26]]></Time>
+<TimeTick>1285768286</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="103" Source="RSAM_Add_Control" SourceLine="79" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T63">
+<Obj plainTxt="False" ><![CDATA[Expanded_Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:26]]></Time>
+<TimeTick>1285768286</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="105" Source="RSAM_Add_Control" SourceLine="80" >
+<Disp><![CDATA[Expanded_Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T64">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlType Expanded"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:26]]></Time>
+<TimeTick>1285768286</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="107" Source="RSAM_Add_Control" SourceLine="81" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T65">
+<Obj plainTxt="False" ><![CDATA[ControlType_URL.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA[""]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:27]]></Time>
+<TimeTick>1285768287</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="109" Source="RSAM_Add_Control" SourceLine="82" >
+<Disp><![CDATA[ControlType_URL.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T66">
+<Obj plainTxt="False" ><![CDATA[CtrlTypeWeight.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["1"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:27]]></Time>
+<TimeTick>1285768287</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="111" Source="RSAM_Add_Control" SourceLine="83" >
+<Disp><![CDATA[CtrlTypeWeight.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T67">
+<Obj plainTxt="False" ><![CDATA[ShowAllDomains.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:27]]></Time>
+<TimeTick>1285768287</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="113" Source="RSAM_Add_Control" SourceLine="84" >
+<Disp><![CDATA[ShowAllDomains.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T68">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[GetRowWithCellText]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:35]]></Time>
+<TimeTick>1285768295</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="115" status="Passed" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T69">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:35]]></Time>
+<TimeTick>1285768295</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="117" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T70">
+<Obj plainTxt="False" ><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:38]]></Time>
+<TimeTick>1285768298</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="120" Source="RSAM_Add_Control" SourceLine="93" >
+<Disp><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="98" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="97" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T71">
+<Obj plainTxt="False" ><![CDATA[Message from webpage]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:38]]></Time>
+<TimeTick>1285768298</TimeTick>
+<Step rID="T72">
+<Obj plainTxt="False" ><![CDATA[OK.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:38]]></Time>
+<TimeTick>1285768298</TimeTick>
+<NodeArgs eType="Replay" icon="17" nRep="123" Source="RSAM_Add_Control" SourceLine="94" >
+<Disp><![CDATA[OK.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="16" nRep="122" Source="RSAM_Add_Control" SourceLine="94" >
+<Disp><![CDATA[Message from webpage]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T73">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:39]]></Time>
+<TimeTick>1285768299</TimeTick>
+<Step rID="T74">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:39]]></Time>
+<TimeTick>1285768299</TimeTick>
+<Step rID="T75">
+<Obj plainTxt="False" ><![CDATA[Update.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:39]]></Time>
+<TimeTick>1285768299</TimeTick>
+<NodeArgs eType="Replay" icon="18" nRep="128" Source="RSAM_Add_Control" SourceLine="98" >
+<Disp><![CDATA[Update.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="127" Source="RSAM_Add_Control" SourceLine="98" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="126" Source="RSAM_Add_Control" SourceLine="98" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="96" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[RSAM]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T76">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Invalid procedure call or argument<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (92): &quot;	Set file_append = fso.OpenTextFile(File_Name, ForAppending,False)&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:40]]></Time>
+<TimeTick>1285768300</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="129" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="91" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T77">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (93): &quot;	file_append.Write &quot;&lt;tr onClick=(this.bgColor='Yellow') onMouseover=(this.bgColor='LightBlue') onMouseout=(this.bgColor='#FFFFFF')&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;SlNumber&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;TestCase_ID&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Step_Description&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Expected_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Actual_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Time&amp;&quot;&lt;/td&gt;&quot;&amp;Result_Val&amp;&quot;&quot;&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:44]]></Time>
+<TimeTick>1285768304</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="130" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="92" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T78">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (94): &quot;	file_append.Close&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:44]]></Time>
+<TimeTick>1285768304</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="131" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="93" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T79">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:45]]></Time>
+<TimeTick>1285768305</TimeTick>
+<Step rID="T80">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:45]]></Time>
+<TimeTick>1285768305</TimeTick>
+<Step rID="T81">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:45]]></Time>
+<TimeTick>1285768305</TimeTick>
+<Step rID="T82">
+<Obj plainTxt="False" ><![CDATA[ControlType_Name.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlTypx2_jnj8"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:45]]></Time>
+<TimeTick>1285768305</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="137" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[ControlType_Name.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T83">
+<Obj plainTxt="False" ><![CDATA[Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:46]]></Time>
+<TimeTick>1285768306</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="139" Source="RSAM_Add_Control" SourceLine="78" >
+<Disp><![CDATA[Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T84">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["This is for ControlType"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:46]]></Time>
+<TimeTick>1285768306</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="141" Source="RSAM_Add_Control" SourceLine="79" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T85">
+<Obj plainTxt="False" ><![CDATA[Expanded_Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:47]]></Time>
+<TimeTick>1285768307</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="143" Source="RSAM_Add_Control" SourceLine="80" >
+<Disp><![CDATA[Expanded_Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T86">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlType Expanded"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:47]]></Time>
+<TimeTick>1285768307</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="145" Source="RSAM_Add_Control" SourceLine="81" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T87">
+<Obj plainTxt="False" ><![CDATA[ControlType_URL.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA[""]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:47]]></Time>
+<TimeTick>1285768307</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="147" Source="RSAM_Add_Control" SourceLine="82" >
+<Disp><![CDATA[ControlType_URL.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T88">
+<Obj plainTxt="False" ><![CDATA[CtrlTypeWeight.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["1"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:47]]></Time>
+<TimeTick>1285768307</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="149" Source="RSAM_Add_Control" SourceLine="83" >
+<Disp><![CDATA[CtrlTypeWeight.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T89">
+<Obj plainTxt="False" ><![CDATA[ShowAllDomains.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:47]]></Time>
+<TimeTick>1285768307</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="151" Source="RSAM_Add_Control" SourceLine="84" >
+<Disp><![CDATA[ShowAllDomains.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T90">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[GetRowWithCellText]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:53]]></Time>
+<TimeTick>1285768313</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="153" status="Passed" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T91">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:53]]></Time>
+<TimeTick>1285768313</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="155" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T92">
+<Obj plainTxt="False" ><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:56]]></Time>
+<TimeTick>1285768316</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="158" Source="RSAM_Add_Control" SourceLine="93" >
+<Disp><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="136" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="135" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T93">
+<Obj plainTxt="False" ><![CDATA[Message from webpage]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:56]]></Time>
+<TimeTick>1285768316</TimeTick>
+<Step rID="T94">
+<Obj plainTxt="False" ><![CDATA[OK.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:56]]></Time>
+<TimeTick>1285768316</TimeTick>
+<NodeArgs eType="Replay" icon="17" nRep="161" Source="RSAM_Add_Control" SourceLine="94" >
+<Disp><![CDATA[OK.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="16" nRep="160" Source="RSAM_Add_Control" SourceLine="94" >
+<Disp><![CDATA[Message from webpage]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T95">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:58]]></Time>
+<TimeTick>1285768318</TimeTick>
+<Step rID="T96">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:58]]></Time>
+<TimeTick>1285768318</TimeTick>
+<Step rID="T97">
+<Obj plainTxt="False" ><![CDATA[Update.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:21:58]]></Time>
+<TimeTick>1285768318</TimeTick>
+<NodeArgs eType="Replay" icon="18" nRep="166" Source="RSAM_Add_Control" SourceLine="98" >
+<Disp><![CDATA[Update.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="165" Source="RSAM_Add_Control" SourceLine="98" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="164" Source="RSAM_Add_Control" SourceLine="98" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="134" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[RSAM]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T98">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Invalid procedure call or argument<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (92): &quot;	Set file_append = fso.OpenTextFile(File_Name, ForAppending,False)&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:06]]></Time>
+<TimeTick>1285768326</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="167" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="91" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T99">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (93): &quot;	file_append.Write &quot;&lt;tr onClick=(this.bgColor='Yellow') onMouseover=(this.bgColor='LightBlue') onMouseout=(this.bgColor='#FFFFFF')&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;SlNumber&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;TestCase_ID&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Step_Description&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Expected_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Actual_Result&amp;&quot;&lt;/td&gt;&lt;td&gt;&lt;Font Face='Verdana' Size='1'&gt;&quot;&amp;Time&amp;&quot;&lt;/td&gt;&quot;&amp;Result_Val&amp;&quot;&quot;&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:09]]></Time>
+<TimeTick>1285768329</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="168" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="92" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T100">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object required: 'file_append'<BR>Function file: D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs<BR>Line (94): &quot;	file_append.Close&quot;.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:10]]></Time>
+<TimeTick>1285768330</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="169" status="Failed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="93" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T101">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:11]]></Time>
+<TimeTick>1285768331</TimeTick>
+<Step rID="T102">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:11]]></Time>
+<TimeTick>1285768331</TimeTick>
+<Step rID="T103">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:11]]></Time>
+<TimeTick>1285768331</TimeTick>
+<Step rID="T104">
+<Obj plainTxt="False" ><![CDATA[ControlType_Name.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlTyp3_l7g4"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:11]]></Time>
+<TimeTick>1285768331</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="175" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[ControlType_Name.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T105">
+<Obj plainTxt="False" ><![CDATA[Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:11]]></Time>
+<TimeTick>1285768331</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="177" Source="RSAM_Add_Control" SourceLine="78" >
+<Disp><![CDATA[Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T106">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["This is for ControlType"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:12]]></Time>
+<TimeTick>1285768332</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="179" Source="RSAM_Add_Control" SourceLine="79" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T107">
+<Obj plainTxt="False" ><![CDATA[Expanded_Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:12]]></Time>
+<TimeTick>1285768332</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="181" Source="RSAM_Add_Control" SourceLine="80" >
+<Disp><![CDATA[Expanded_Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T108">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlType Expanded"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:12]]></Time>
+<TimeTick>1285768332</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="183" Source="RSAM_Add_Control" SourceLine="81" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T109">
+<Obj plainTxt="False" ><![CDATA[ControlType_URL.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA[""]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:13]]></Time>
+<TimeTick>1285768333</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="185" Source="RSAM_Add_Control" SourceLine="82" >
+<Disp><![CDATA[ControlType_URL.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T110">
+<Obj plainTxt="False" ><![CDATA[CtrlTypeWeight.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["1"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:13]]></Time>
+<TimeTick>1285768333</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="187" Source="RSAM_Add_Control" SourceLine="83" >
+<Disp><![CDATA[CtrlTypeWeight.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T111">
+<Obj plainTxt="False" ><![CDATA[ShowAllDomains.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:13]]></Time>
+<TimeTick>1285768333</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="189" Source="RSAM_Add_Control" SourceLine="84" >
+<Disp><![CDATA[ShowAllDomains.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T112">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[GetRowWithCellText]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:18]]></Time>
+<TimeTick>1285768338</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="191" status="Passed" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T113">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:18]]></Time>
+<TimeTick>1285768338</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="193" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T114">
+<Obj plainTxt="False" ><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:22]]></Time>
+<TimeTick>1285768342</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="196" Source="RSAM_Add_Control" SourceLine="93" >
+<Disp><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="174" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="173" status="Passed" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T115">
+<Obj plainTxt="False" ><![CDATA[Message from webpage]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:22]]></Time>
+<TimeTick>1285768342</TimeTick>
+<Step rID="T116">
+<Obj plainTxt="False" ><![CDATA[OK.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:22]]></Time>
+<TimeTick>1285768342</TimeTick>
+<NodeArgs eType="Replay" icon="17" nRep="199" Source="RSAM_Add_Control" SourceLine="94" >
+<Disp><![CDATA[OK.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="16" nRep="198" Source="RSAM_Add_Control" SourceLine="94" >
+<Disp><![CDATA[Message from webpage]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T117">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<Step rID="T118">
+<Obj plainTxt="False" ><![CDATA[AddAttribute]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<Step rID="T119">
+<Obj plainTxt="False" ><![CDATA[xchkUpdateMultiple]]></Obj>
+<Details plainTxt="False" ><![CDATA[Cannot identify the object "xchkUpdateMultiple" (of class WebCheckBox). Verify that this object's properties match an object currently displayed in your application.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<Step rID="T120">
+<Obj plainTxt="False" ><![CDATA[xchkUpdateMultiple]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object's physical description:<br>Mercury Class = WebCheckBox<br>Html Tag = INPUT<br>|Visible = -1<br>Value = on<br>Type = checkbox<br>Name = xchkUpdateMultiple<br>Html Id = xchkUpdateMultiple<br>DHTML Class = <br>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="217" status="Warning" nType="Description" Source="RSAM_Add_Control" SourceLine="96" >
+<Disp><![CDATA[xchkUpdateMultiple]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T121">
+<Obj plainTxt="False" ><![CDATA[ErrorMessage]]></Obj>
+<Details plainTxt="False" ><![CDATA[<SPAN class=text><div align=left><dl><b><u>Scenario</u>: </b>ErrorMessage<br><b><u>Defined in</u>: </b>D:\RSAM_Automation_FrameWork\RSAM_Recovery\RSAM_Recovery.qrs<br><b><u>Description</u>: </b><br><b><u>Post-recovery operation</u>: </b>Stop the test run.<br><br><b><u>Activated by trigger</u>:</b><dd><u>Type</u>: Test run error<br><u>The error string</u>: Any error</dd><dt><br><b><u>The current test step details</u>:</b><dd><u>Object</u>: WebCheckBox("xchkUpdateMultiple")<br><u>Method</u>: Set<br><u>Arguments</u>: OFF<br><u>Result</u>: Cannot identify the object</dd></dt></dl></div></SPAN>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<Step rID="T122">
+<Obj plainTxt="False" ><![CDATA[Enter]]></Obj>
+<Details plainTxt="False" ><![CDATA[<SPAN class=text><div align=left><b><u>Generate the keyboard event</u>:</b> Enter</div></SPAN>]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<NodeArgs eType="Replay" icon="20" nRep="219" nType="Keyboard operation" Source="RSAM_Add_Control" SourceLine="96" >
+<Disp><![CDATA[Enter]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T123">
+<Obj plainTxt="False" ><![CDATA[Stop]]></Obj>
+<Details plainTxt="False" ><![CDATA[Stop the test run.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<NodeArgs eType="Replay" icon="21" nRep="220" nType="Test" Source="RSAM_Add_Control" SourceLine="96" >
+<Disp><![CDATA[Stop]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="19" nRep="218" nType="Error" Source="RSAM_Add_Control" SourceLine="96" >
+<Disp><![CDATA[ErrorMessage]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="14" nRep="216" status="Warning" nType="Run Error" Source="RSAM_Add_Control" SourceLine="96" >
+<Disp><![CDATA[xchkUpdateMultiple]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T124">
+<Obj plainTxt="False" ><![CDATA[Stop Run]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run stopped by user.]]></Details>
+<Time><![CDATA[9/29/2010 - 19:22:37]]></Time>
+<TimeTick>1285768357</TimeTick>
+<NodeArgs eType="General" icon="22" nRep="221" >
+<Disp><![CDATA[

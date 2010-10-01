@@ -1,0 +1,50 @@
+<RSAM_Environment>
+	<Variable>
+		<Name>URL</Name>
+		<Value>http://192.168.1.208/RSAM_V7.2/default.aspx</Value>
+	</Variable>
+	<Variable>
+		<Name>Username</Name>
+		<Value>a</Value>
+	</Variable>
+	<Variable>
+		<Name>pwd</Name>
+		<Value>a</Value>
+	</Variable>
+	<Variable>
+		<Name>PasswordEncryptorURL</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM Password Encryptor.html</Value>
+	</Variable>
+	<Variable>
+		<Name>RSAM_Automation_Documentation_Path</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Automation_Documentation</Value>
+	</Variable>
+	<Variable>
+		<Name>RSAM_DataTable_Path</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_DataTable</Value>
+	</Variable>
+	<Variable>
+		<Name>RSAM_Object_Repository_Path</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Object_Repository</Value>
+	</Variable>
+	<Variable>
+		<Name>RSAM_Results_Path</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Results</Value>
+	</Variable>
+	<Variable>
+		<Name>RSAM_Scripts_Path</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Scripts_Path</Value>
+	</Variable>
+	<Variable>
+		<Name>RSAM_Library_Path</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Library</Value>
+	</Variable>
+	<Variable>
+		<Name>RSAM_Recovery_Path</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Recovery</Value>
+	</Variable>
+	<Variable>
+		<Name>ResultFileName</Name>
+		<Value>D:\RSAM_Automation_FrameWork\RSAM_Results\RSAM_Log_Tuesday, August 24, 2010@9-45-30 PM.html</Value>
+	</Variable>
+</RSAM_Environment>

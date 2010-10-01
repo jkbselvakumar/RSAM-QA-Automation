@@ -1,0 +1,335 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED qcserver CDATA #IMPLIED qcproject CDATA #IMPLIED  >
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,AdditionalInfo*,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName,Res,DVer?,TSet?,TInst?,RunType?,DT?,AdditionalInfo*,Step*,DIter*,Step*,Action*,Summary?,TestMaintenanceSummary*,NodeArgs?) >
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT AdditionalInfo (AdditionalDataName,AdditionalDataValue ) >
+
+<!ELEMENT AdditionalDataName ( #PCDATA ) >
+
+<!ELEMENT AdditionalDataValue ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step?,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,ActionMaintenanceSummary*,NodeArgs ) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT TestMaintenanceSummary (ActionMaintenanceSummary*) >
+<!ATTLIST TestMaintenanceSummary ObjectsAdded CDATA #REQUIRED ObjectsUpdated CDATA #REQUIRED StepsUpdated CDATA #REQUIRED StepsComments CDATA #REQUIRED><!ELEMENT ActionMaintenanceSummary (ObjectChange* ) >
+<!ATTLIST ActionMaintenanceSummary Action CDATA #REQUIRED Objects CDATA #REQUIRED Updated CDATA #REQUIRED LinesTotal CDATA #REQUIRED Added CDATA #REQUIRED LinesUpdated CDATA #REQUIRED>
+
+<!ELEMENT ObjectChange  (Hierarchy, PropertyChangeList* ) >
+<!ATTLIST ObjectChange Operation CDATA #IMPLIED OriginalRepository CDATA #IMPLIED>
+
+<!ELEMENT PropertyChangeList (PropertyDef*) >
+
+<!ELEMENT PropertyDef (OriginalValue, NewValue) >
+<!ATTLIST PropertyDef PropName CDATA #REQUIRED OriginRegularExpression (True|False) "False" NewRegularExpression (True|False) "False" AddedProperty (True|False) "False" >
+
+<!ELEMENT OriginalValue ( #PCDATA )>
+
+<!ELEMENT NewValue ( #PCDATA )>
+
+<!ELEMENT Hierarchy  (ObjectName, Hierarchy*) >
+<!ATTLIST Hierarchy MicClass CDATA #REQUIRED>
+
+<!ELEMENT ObjectName  ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,TimeTick* ,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,TimeTick*,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT TimeTick ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?)>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED MovieMarker CDATA "">
+<!ATTLIST NodeArgs Source CDATA #IMPLIED SourceLine CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+>
+<Report ver="2.0" tmZone="India Standard Time">
+<General productName="QuickTest Professional" productVer="10.00" os="Windows XP" host="WBL06802"><DocLocation><![CDATA[D:\RSAM_Automation_FrameWork\RSAM_Scripts\RSAM_Login_Suite]]></DocLocation></General>
+<Doc rID="T1"   productName= "QuickTest Professional"  >
+<DName><![CDATA[RSAM_Login_Suite]]></DName>
+<Res><![CDATA[Res1]]></Res>
+<DT rID="T2">
+<NodeArgs eType="Table" icon="2" nRep="4" filter="False" >
+<Disp><![CDATA[Run-Time Data Table]]></Disp>
+<BtmPane vType="Table">
+<Path><![CDATA[Default.xls]]></Path>
+</BtmPane>
+</NodeArgs>
+</DT>
+<AdditionalInfo>
+<AdditionalDataName><![CDATA[Web Services Run Toolkit]]></AdditionalDataName>
+<AdditionalDataValue><![CDATA[.NET Framework 2.0 WSE 3.0]]></AdditionalDataValue>
+</AdditionalInfo>
+<DIter rID="T3" iterID="1" >
+<Action rID="T4">
+<AName><![CDATA[RSAM_Login_Suite]]></AName>
+<Step rID="T5">
+<Obj plainTxt="False" ><![CDATA[SystemUtil]]></Obj>
+<Details plainTxt="False" ><![CDATA[SystemUtil]]></Details>
+<Time><![CDATA[9/21/2010 - 18:50:57]]></Time>
+<TimeTick>1285075257</TimeTick>
+<Step rID="T6">
+<Obj plainTxt="False" ><![CDATA[Run "iexplore",1]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run "iexplore",1]]></Details>
+<Time><![CDATA[9/21/2010 - 18:50:57]]></Time>
+<TimeTick>1285075257</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="12" status="Passed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="428" >
+<Disp><![CDATA[Run "iexplore",1]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="5" nRep="11" status="Passed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="428" >
+<Disp><![CDATA[SystemUtil]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T7">
+<Obj plainTxt="False" ><![CDATA[[ To help protect your security, Internet Explorer has restricted this webpage from running scripts or ActiveX controls that could access your computer. Click here for options ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:04]]></Time>
+<TimeTick>1285075264</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="13" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="429" >
+<Disp><![CDATA[[ To help protect your security, Internet Explorer has restricted this webpage from running scripts or ActiveX controls that could access your computer. Click here for options ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[[ To help protect your security, Internet Explorer has restricted this webpage from running scripts or ActiveX controls that could access your computer. Click here for options ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:04]]></Time>
+<TimeTick>1285075264</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="15" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="431" >
+<Disp><![CDATA[[ To help protect your security, Internet Explorer has restricted this webpage from running scripts or ActiveX controls that could access your computer. Click here for options ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[[ WinMenu ].Select]]></Obj>
+<Details plainTxt="False" ><![CDATA["Allow Blocked Content..."]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:05]]></Time>
+<TimeTick>1285075265</TimeTick>
+<NodeArgs eType="Replay" icon="7" nRep="17" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="432" >
+<Disp><![CDATA[[ WinMenu ].Select]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[[ Yes ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:05]]></Time>
+<TimeTick>1285075265</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="19" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="433" >
+<Disp><![CDATA[[ Yes ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA[[ WebEdit ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["a"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:07]]></Time>
+<TimeTick>1285075267</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="21" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="437" >
+<Disp><![CDATA[[ WebEdit ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[[ Encrypt ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:07]]></Time>
+<TimeTick>1285075267</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="23" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="438" >
+<Disp><![CDATA[[ Encrypt ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[[ RSAM Password Encryptor ].Close]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:07]]></Time>
+<TimeTick>1285075267</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="24" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="442" >
+<Disp><![CDATA[[ RSAM Password Encryptor ].Close]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[SystemUtil]]></Obj>
+<Details plainTxt="False" ><![CDATA[SystemUtil]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:20]]></Time>
+<TimeTick>1285075280</TimeTick>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[Run "iexplore",1]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run "iexplore",1]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:20]]></Time>
+<TimeTick>1285075280</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="28" status="Passed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="296" >
+<Disp><![CDATA[Run "iexplore",1]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="5" nRep="27" status="Passed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="296" >
+<Disp><![CDATA[SystemUtil]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[[ RSAM Login ].Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:26]]></Time>
+<TimeTick>1285075286</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="31" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="298" >
+<Disp><![CDATA[[ RSAM Login ].Sync]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[[ txt_userID ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:29]]></Time>
+<TimeTick>1285075289</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="32" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="299" >
+<Disp><![CDATA[[ txt_userID ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[[ txt_password ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:29]]></Time>
+<TimeTick>1285075289</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="33" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="299" >
+<Disp><![CDATA[[ txt_password ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[[ STARTUP_BUTTON_LOGIN_UP ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:29]]></Time>
+<TimeTick>1285075289</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="34" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="299" >
+<Disp><![CDATA[[ STARTUP_BUTTON_LOGIN_UP ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T20">
+<Obj plainTxt="False" ><![CDATA[[ txt_userID ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["a"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:29]]></Time>
+<TimeTick>1285075289</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="37" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="346" >
+<Disp><![CDATA[[ txt_userID ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[[ txt_password ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["a"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:29]]></Time>
+<TimeTick>1285075289</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="39" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="347" >
+<Disp><![CDATA[[ txt_password ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[[ STARTUP_BUTTON_LOGIN_UP ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:30]]></Time>
+<TimeTick>1285075290</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="41" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="348" >
+<Disp><![CDATA[[ STARTUP_BUTTON_LOGIN_UP ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[[ RSAM Home ].Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:37]]></Time>
+<TimeTick>1285075297</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="44" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="391" >
+<Disp><![CDATA[[ RSAM Home ].Sync]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[[ RSAM Home ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/21/2010 - 18:51:37]]></Time>
+<TimeTick>1285075297</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="46" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="393" >
+<Disp><![CDATA[[ RSAM Home ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="9/21/2010 - 18:50:52" eTime="9/21/2010 - 18:51:38" passed="2" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="8" status="Passed" >
+<Disp><![CDATA[RSAM_Login_Suite Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="7" status="Passed" >
+<Disp><![CDATA[RSAM_Login_Suite Iteration 1 (Row 1)]]></Disp>
+</NodeArgs>
+</DIter>
+<Summary sTime="9/21/2010 - 18:50:49" eTime="9/21/2010 - 18:51:38" passed="2" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartTest" icon="1" nRep="3" status="Passed" >
+<Disp><![CDATA[Test RSAM_Login_Suite Summary]]></Disp>
+</NodeArgs>
+</Doc>
+</Report>

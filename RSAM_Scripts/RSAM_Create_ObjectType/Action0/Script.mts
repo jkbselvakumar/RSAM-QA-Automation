@@ -1,0 +1,1 @@
+﻿RunAction "RSAM_Add_ObjectTypes", oneIteration

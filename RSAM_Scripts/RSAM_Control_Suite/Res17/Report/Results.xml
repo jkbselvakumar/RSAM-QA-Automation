@@ -1,0 +1,1241 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED qcserver CDATA #IMPLIED qcproject CDATA #IMPLIED  >
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,AdditionalInfo*,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName,Res,DVer?,TSet?,TInst?,RunType?,DT?,AdditionalInfo*,Step*,DIter*,Step*,Action*,Summary?,TestMaintenanceSummary*,NodeArgs?) >
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT AdditionalInfo (AdditionalDataName,AdditionalDataValue ) >
+
+<!ELEMENT AdditionalDataName ( #PCDATA ) >
+
+<!ELEMENT AdditionalDataValue ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step?,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,ActionMaintenanceSummary*,NodeArgs ) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT TestMaintenanceSummary (ActionMaintenanceSummary*) >
+<!ATTLIST TestMaintenanceSummary ObjectsAdded CDATA #REQUIRED ObjectsUpdated CDATA #REQUIRED StepsUpdated CDATA #REQUIRED StepsComments CDATA #REQUIRED><!ELEMENT ActionMaintenanceSummary (ObjectChange* ) >
+<!ATTLIST ActionMaintenanceSummary Action CDATA #REQUIRED Objects CDATA #REQUIRED Updated CDATA #REQUIRED LinesTotal CDATA #REQUIRED Added CDATA #REQUIRED LinesUpdated CDATA #REQUIRED>
+
+<!ELEMENT ObjectChange  (Hierarchy, PropertyChangeList* ) >
+<!ATTLIST ObjectChange Operation CDATA #IMPLIED OriginalRepository CDATA #IMPLIED>
+
+<!ELEMENT PropertyChangeList (PropertyDef*) >
+
+<!ELEMENT PropertyDef (OriginalValue, NewValue) >
+<!ATTLIST PropertyDef PropName CDATA #REQUIRED OriginRegularExpression (True|False) "False" NewRegularExpression (True|False) "False" AddedProperty (True|False) "False" >
+
+<!ELEMENT OriginalValue ( #PCDATA )>
+
+<!ELEMENT NewValue ( #PCDATA )>
+
+<!ELEMENT Hierarchy  (ObjectName, Hierarchy*) >
+<!ATTLIST Hierarchy MicClass CDATA #REQUIRED>
+
+<!ELEMENT ObjectName  ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,TimeTick* ,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,TimeTick*,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT TimeTick ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?)>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED MovieMarker CDATA "">
+<!ATTLIST NodeArgs Source CDATA #IMPLIED SourceLine CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+>
+<Report ver="2.0" tmZone="India Standard Time">
+<General productName="QuickTest Professional" productVer="10.00" os="Windows XP" host="WBL06802"><DocLocation><![CDATA[D:\RSAM_Automation_FrameWork\RSAM_Scripts\RSAM_Control_Suite]]></DocLocation></General>
+<Doc rID="T1"   productName= "QuickTest Professional"  >
+<DName><![CDATA[RSAM_Control_Suite]]></DName>
+<Res><![CDATA[Res17]]></Res>
+<DT rID="T2">
+<NodeArgs eType="Table" icon="2" nRep="4" filter="False" >
+<Disp><![CDATA[Run-Time Data Table]]></Disp>
+<BtmPane vType="Table">
+<Path><![CDATA[Default.xls]]></Path>
+</BtmPane>
+</NodeArgs>
+</DT>
+<AdditionalInfo>
+<AdditionalDataName><![CDATA[Web Services Run Toolkit]]></AdditionalDataName>
+<AdditionalDataValue><![CDATA[.NET Framework 2.0 WSE 3.0]]></AdditionalDataValue>
+</AdditionalInfo>
+<DIter rID="T3" iterID="1" >
+<Action rID="T4">
+<AName><![CDATA[RSAM_Add_Control]]></AName>
+<Step rID="T5">
+<Obj plainTxt="False" ><![CDATA[[ WebTable ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:19]]></Time>
+<TimeTick>1285141279</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="11" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[[ WebTable ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T6">
+<Obj plainTxt="False" ><![CDATA["[  Home  ]":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:24]]></Time>
+<TimeTick>1285141284</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="14" >
+<Disp><![CDATA["[  Home  ]":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T7">
+<Obj plainTxt="False" ><![CDATA[[  Home  ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:24]]></Time>
+<TimeTick>1285141284</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="16" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="218" >
+<Disp><![CDATA[[  Home  ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[RSAM]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:27]]></Time>
+<TimeTick>1285141287</TimeTick>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[RSAM Home]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:27]]></Time>
+<TimeTick>1285141287</TimeTick>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[[  Home  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:27]]></Time>
+<TimeTick>1285141287</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="20" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[[  Home  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA["[  Manage  ]":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:29]]></Time>
+<TimeTick>1285141289</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="23" >
+<Disp><![CDATA["[  Manage  ]":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[[  Manage  ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:29]]></Time>
+<TimeTick>1285141289</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="25" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="218" >
+<Disp><![CDATA[[  Manage  ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[[ Users/Groups  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:30]]></Time>
+<TimeTick>1285141290</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="27" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Users/Groups  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[[ Permission Assignments  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:31]]></Time>
+<TimeTick>1285141291</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="30" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Permission Assignments  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[[ WebTable ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:34]]></Time>
+<TimeTick>1285141294</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="35" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ WebTable ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[[ Offline Data Gathering  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:35]]></Time>
+<TimeTick>1285141295</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="37" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Offline Data Gathering  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[[ RSAM Scheduler  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:36]]></Time>
+<TimeTick>1285141296</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="40" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ RSAM Scheduler  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[[ UCF Control Allocation  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:38]]></Time>
+<TimeTick>1285141298</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="43" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ UCF Control Allocation  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[[ Administration  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:40]]></Time>
+<TimeTick>1285141300</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="46" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="224" >
+<Disp><![CDATA[[ Administration  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T20">
+<Obj plainTxt="False" ><![CDATA["[ Administration  ]":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:41]]></Time>
+<TimeTick>1285141301</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="49" >
+<Disp><![CDATA["[ Administration  ]":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[[ Administration ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:41]]></Time>
+<TimeTick>1285141301</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="51" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="238" >
+<Disp><![CDATA[[ Administration ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="19" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[RSAM Home]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:44]]></Time>
+<TimeTick>1285141304</TimeTick>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[Controls.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:44]]></Time>
+<TimeTick>1285141304</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="55" Source="RSAM_Add_Control" SourceLine="46" >
+<Disp><![CDATA[Controls.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[ControlsFrame]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:48]]></Time>
+<TimeTick>1285141308</TimeTick>
+<Step rID="T25">
+<Obj plainTxt="False" ><![CDATA[Control Types (questions).Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:48]]></Time>
+<TimeTick>1285141308</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="57" Source="RSAM_Add_Control" SourceLine="47" >
+<Disp><![CDATA[Control Types (questions).Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T26">
+<Obj plainTxt="False" ><![CDATA["Add"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Add<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (63 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Add<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xlnkAddCtrlQ<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Add<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xlnkAddCtrlQ','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:48]]></Time>
+<TimeTick>1285141308</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="58" Source="RSAM_Add_Control" SourceLine="52" >
+<Disp><![CDATA["Add"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T27">
+<Obj plainTxt="False" ><![CDATA["Edit"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Edit<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (63 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Edit<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xlnkEditCtrlQ<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Edit<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xlnkEditCtrlQ','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:48]]></Time>
+<TimeTick>1285141308</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="59" Source="RSAM_Add_Control" SourceLine="53" >
+<Disp><![CDATA["Edit"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T28">
+<Obj plainTxt="False" ><![CDATA["Delete"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Delete<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (63 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Delete<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xlnkDelCtrlType<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Delete<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xlnkDelCtrlType','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:48]]></Time>
+<TimeTick>1285141308</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="60" Source="RSAM_Add_Control" SourceLine="54" >
+<Disp><![CDATA["Delete"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T29">
+<Obj plainTxt="False" ><![CDATA["left"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (19 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=Image<br>image type=Plain Image<br>html tag=IMG<br>alt=<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (23 objects found)&nbsp;</FONT></u><br>
+micclass=Image<br>html tag=IMG<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+alt=<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>image type=Plain Image<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>html id=ximgLeftIndent<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>name=Image<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>file name=left.jpeg<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>class=<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>width=22<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>height=10<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:49]]></Time>
+<TimeTick>1285141309</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="61" Source="RSAM_Add_Control" SourceLine="60" >
+<Disp><![CDATA["left"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T30">
+<Obj plainTxt="False" ><![CDATA[left.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:49]]></Time>
+<TimeTick>1285141309</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="62" Source="RSAM_Add_Control" SourceLine="60" >
+<Disp><![CDATA[left.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T31">
+<Obj plainTxt="False" ><![CDATA["right"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (19 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=Image<br>image type=Plain Image<br>html tag=IMG<br>alt=<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (23 objects found)&nbsp;</FONT></u><br>
+micclass=Image<br>html tag=IMG<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+alt=<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>image type=Plain Image<SPAN class=passed> (Used</SPAN>, 19 matches)</SPAN><br>html id=ximgRightIndent<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>name=Image<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>file name=right.jpg<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>class=<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>width=22<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>height=10<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:49]]></Time>
+<TimeTick>1285141309</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="63" Source="RSAM_Add_Control" SourceLine="60" >
+<Disp><![CDATA["right"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T32">
+<Obj plainTxt="False" ><![CDATA[right.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:49]]></Time>
+<TimeTick>1285141309</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="64" Source="RSAM_Add_Control" SourceLine="60" >
+<Disp><![CDATA[right.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T33">
+<Obj plainTxt="False" ><![CDATA[Add.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:49]]></Time>
+<TimeTick>1285141309</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="67" Source="RSAM_Add_Control" SourceLine="69" >
+<Disp><![CDATA[Add.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="56" Source="RSAM_Add_Control" SourceLine="47" >
+<Disp><![CDATA[ControlsFrame]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T34">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:51]]></Time>
+<TimeTick>1285141311</TimeTick>
+<Step rID="T35">
+<Obj plainTxt="False" ><![CDATA[ControlType_Name.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlTyp1_no0m"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:51]]></Time>
+<TimeTick>1285141311</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="71" Source="RSAM_Add_Control" SourceLine="71" >
+<Disp><![CDATA[ControlType_Name.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T36">
+<Obj plainTxt="False" ><![CDATA[Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:51]]></Time>
+<TimeTick>1285141311</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="73" Source="RSAM_Add_Control" SourceLine="72" >
+<Disp><![CDATA[Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T37">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["This is for ControlType"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:51]]></Time>
+<TimeTick>1285141311</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="75" Source="RSAM_Add_Control" SourceLine="73" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T38">
+<Obj plainTxt="False" ><![CDATA[Expanded_Description.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:51]]></Time>
+<TimeTick>1285141311</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="77" Source="RSAM_Add_Control" SourceLine="74" >
+<Disp><![CDATA[Expanded_Description.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T39">
+<Obj plainTxt="False" ><![CDATA[Control_Description.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ControlType Expanded"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:52]]></Time>
+<TimeTick>1285141312</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="79" Source="RSAM_Add_Control" SourceLine="75" >
+<Disp><![CDATA[Control_Description.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T40">
+<Obj plainTxt="False" ><![CDATA[ControlType_URL.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA[""]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:52]]></Time>
+<TimeTick>1285141312</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="81" Source="RSAM_Add_Control" SourceLine="76" >
+<Disp><![CDATA[ControlType_URL.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T41">
+<Obj plainTxt="False" ><![CDATA[CtrlTypeWeight.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["1"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:52]]></Time>
+<TimeTick>1285141312</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="83" Source="RSAM_Add_Control" SourceLine="77" >
+<Disp><![CDATA[CtrlTypeWeight.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T42">
+<Obj plainTxt="False" ><![CDATA[ShowAllDomains.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:52]]></Time>
+<TimeTick>1285141312</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="85" Source="RSAM_Add_Control" SourceLine="78" >
+<Disp><![CDATA[ShowAllDomains.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T43">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[GetRowWithCellText]]></Details>
+<Time><![CDATA[9/22/2010 - 13:11:59]]></Time>
+<TimeTick>1285141319</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="87" status="Passed" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T44">
+<Obj plainTxt="False" ><![CDATA["DomainsTables":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:00]]></Time>
+<TimeTick>1285141320</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="89" >
+<Disp><![CDATA["DomainsTables":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T45">
+<Obj plainTxt="False" ><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:03]]></Time>
+<TimeTick>1285141323</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="92" Source="RSAM_Add_Control" SourceLine="87" >
+<Disp><![CDATA[[ xchkbxlistOptions$2 ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="70" status="Passed" Source="RSAM_Add_Control" SourceLine="71" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="54" status="Passed" Source="RSAM_Add_Control" SourceLine="46" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T46">
+<Obj plainTxt="False" ><![CDATA[Message from webpage]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:03]]></Time>
+<TimeTick>1285141323</TimeTick>
+<Step rID="T47">
+<Obj plainTxt="False" ><![CDATA[OK.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:03]]></Time>
+<TimeTick>1285141323</TimeTick>
+<NodeArgs eType="Replay" icon="16" nRep="95" Source="RSAM_Add_Control" SourceLine="88" >
+<Disp><![CDATA[OK.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="15" nRep="94" Source="RSAM_Add_Control" SourceLine="88" >
+<Disp><![CDATA[Message from webpage]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T48">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:05]]></Time>
+<TimeTick>1285141325</TimeTick>
+<Step rID="T49">
+<Obj plainTxt="False" ><![CDATA[AddControl]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:05]]></Time>
+<TimeTick>1285141325</TimeTick>
+<Step rID="T50">
+<Obj plainTxt="False" ><![CDATA[Update.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:05]]></Time>
+<TimeTick>1285141325</TimeTick>
+<NodeArgs eType="Replay" icon="17" nRep="100" Source="RSAM_Add_Control" SourceLine="89" >
+<Disp><![CDATA[Update.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="99" Source="RSAM_Add_Control" SourceLine="89" >
+<Disp><![CDATA[AddControl]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="98" Source="RSAM_Add_Control" SourceLine="89" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="18" status="Passed" Source="D:\RSAM_Automation_FrameWork\RSAM_Library\RSAM_Function_Library.vbs" SourceLine="183" >
+<Disp><![CDATA[RSAM]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="9/22/2010 - 13:11:16" eTime="9/22/2010 - 13:12:05" passed="1" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="8" status="Passed" >
+<Disp><![CDATA[RSAM_Add_Control Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T51">
+<AName><![CDATA[RSAM_Add_Control_Answers]]></AName>
+<Step rID="T52">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:06]]></Time>
+<TimeTick>1285141326</TimeTick>
+<Step rID="T53">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:06]]></Time>
+<TimeTick>1285141326</TimeTick>
+<Step rID="T54">
+<Obj plainTxt="False" ><![CDATA[ControlLevel(Answers)]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:06]]></Time>
+<TimeTick>1285141326</TimeTick>
+<Step rID="T55">
+<Obj plainTxt="False" ><![CDATA[Add.Object]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:06]]></Time>
+<TimeTick>1285141326</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="106" Source="RSAM_Add_Control_Answers" SourceLine="26" >
+<Disp><![CDATA[Add.Object]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T56">
+<Obj plainTxt="False" ><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.2718893410271792<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:08]]></Time>
+<TimeTick>1285141328</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="108" Source="RSAM_Add_Control_Answers" SourceLine="26" >
+<Disp><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T57">
+<Obj plainTxt="False" ><![CDATA["Add"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Add<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (63 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Add<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xwtRelated__ctl0_xlnkAddAns<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Add<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xwtRelated$_ctl0$xlnkAddAns','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:08]]></Time>
+<TimeTick>1285141328</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="109" Source="RSAM_Add_Control_Answers" SourceLine="26" >
+<Disp><![CDATA["Add"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T58">
+<Obj plainTxt="False" ><![CDATA[Edit.Object]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="110" Source="RSAM_Add_Control_Answers" SourceLine="27" >
+<Disp><![CDATA[Edit.Object]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T59">
+<Obj plainTxt="False" ><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.2718893410271792<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="111" Source="RSAM_Add_Control_Answers" SourceLine="27" >
+<Disp><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T60">
+<Obj plainTxt="False" ><![CDATA["Edit"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Edit<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (63 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Edit<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xwtRelated__ctl0_xlnkEditAns<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButtonDisabled<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Edit<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xwtRelated$_ctl0$xlnkEditAns','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="112" Source="RSAM_Add_Control_Answers" SourceLine="27" >
+<Disp><![CDATA["Edit"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T61">
+<Obj plainTxt="False" ><![CDATA[Delete.Object]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="113" Source="RSAM_Add_Control_Answers" SourceLine="28" >
+<Disp><![CDATA[Delete.Object]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T62">
+<Obj plainTxt="False" ><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.2718893410271792<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="114" Source="RSAM_Add_Control_Answers" SourceLine="28" >
+<Disp><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T63">
+<Obj plainTxt="False" ><![CDATA["Delete"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>text=Delete<br>micclass=Link<br>html tag=A<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (63 objects found)&nbsp;</FONT></u><br>
+micclass=Link<br>html tag=A<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+text=Delete<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>html id=xwtRelated__ctl0_xlnkDelCtrlAns<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>class=csLinkButton<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>name=Delete<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>href=javascript:__doPostBack('xwtRelated$_ctl0$xlnkDelCtrlAns','')<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="115" Source="RSAM_Add_Control_Answers" SourceLine="28" >
+<Disp><![CDATA["Delete"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T64">
+<Obj plainTxt="False" ><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.2718893410271792<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="118" Source="RSAM_Add_Control_Answers" SourceLine="36" >
+<Disp><![CDATA["ControlLevel(Answers)"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T65">
+<Obj plainTxt="False" ><![CDATA[Add.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:09]]></Time>
+<TimeTick>1285141329</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="119" Source="RSAM_Add_Control_Answers" SourceLine="36" >
+<Disp><![CDATA[Add.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="105" Source="RSAM_Add_Control_Answers" SourceLine="26" >
+<Disp><![CDATA[ControlLevel(Answers)]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T66">
+<Obj plainTxt="False" ><![CDATA[Add_Control_Frame]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:12]]></Time>
+<TimeTick>1285141332</TimeTick>
+<Step rID="T67">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:12]]></Time>
+<TimeTick>1285141332</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="122" Source="RSAM_Add_Control_Answers" SourceLine="40" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T68">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:12]]></Time>
+<TimeTick>1285141332</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="124" Source="RSAM_Add_Control_Answers" SourceLine="41" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T69">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="127" Source="RSAM_Add_Control_Answers" SourceLine="49" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T70">
+<Obj plainTxt="False" ><![CDATA[level.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["00"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="128" Source="RSAM_Add_Control_Answers" SourceLine="49" >
+<Disp><![CDATA[level.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T71">
+<Obj plainTxt="False" ><![CDATA[Desc.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["Control Answer1"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="130" Source="RSAM_Add_Control_Answers" SourceLine="50" >
+<Disp><![CDATA[Desc.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T72">
+<Obj plainTxt="False" ><![CDATA[RemedDesc.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["Control Answer Description"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="132" Source="RSAM_Add_Control_Answers" SourceLine="51" >
+<Disp><![CDATA[RemedDesc.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T73">
+<Obj plainTxt="False" ><![CDATA[Weight.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["1"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="134" Source="RSAM_Add_Control_Answers" SourceLine="52" >
+<Disp><![CDATA[Weight.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T74">
+<Obj plainTxt="False" ><![CDATA[Comments.Select]]></Obj>
+<Details plainTxt="False" ><![CDATA["xrdoReqCmmnts"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="18" nRep="136" Source="RSAM_Add_Control_Answers" SourceLine="53" >
+<Disp><![CDATA[Comments.Select]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T75">
+<Obj plainTxt="False" ><![CDATA[FileAttachment.Select]]></Obj>
+<Details plainTxt="False" ><![CDATA["xrdoOptFileAttchmnt"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="18" nRep="138" Source="RSAM_Add_Control_Answers" SourceLine="54" >
+<Disp><![CDATA[FileAttachment.Select]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T76">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="141" Source="RSAM_Add_Control_Answers" SourceLine="57" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T77">
+<Obj plainTxt="False" ><![CDATA[Hidden.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["ON"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:13]]></Time>
+<TimeTick>1285141333</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="142" Source="RSAM_Add_Control_Answers" SourceLine="57" >
+<Disp><![CDATA[Hidden.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T78">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:14]]></Time>
+<TimeTick>1285141334</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="145" Source="RSAM_Add_Control_Answers" SourceLine="64" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T79">
+<Obj plainTxt="False" ><![CDATA[Show Auto-Answers.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:14]]></Time>
+<TimeTick>1285141334</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="146" Source="RSAM_Add_Control_Answers" SourceLine="64" >
+<Disp><![CDATA[Show Auto-Answers.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="121" Source="RSAM_Add_Control_Answers" SourceLine="40" >
+<Disp><![CDATA[Add_Control_Frame]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="104" Source="RSAM_Add_Control_Answers" SourceLine="26" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T80">
+<Obj plainTxt="False" ><![CDATA[Message from webpage.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:17]]></Time>
+<TimeTick>1285141337</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="148" Source="RSAM_Add_Control_Answers" SourceLine="91" >
+<Disp><![CDATA[Message from webpage.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T81">
+<Obj plainTxt="False" ><![CDATA[Message from webpage]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:17]]></Time>
+<TimeTick>1285141337</TimeTick>
+<Step rID="T82">
+<Obj plainTxt="False" ><![CDATA[OK.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:17]]></Time>
+<TimeTick>1285141337</TimeTick>
+<NodeArgs eType="Replay" icon="16" nRep="151" Source="RSAM_Add_Control_Answers" SourceLine="92" >
+<Disp><![CDATA[OK.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="15" nRep="150" Source="RSAM_Add_Control_Answers" SourceLine="92" >
+<Disp><![CDATA[Message from webpage]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T83">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:18]]></Time>
+<TimeTick>1285141338</TimeTick>
+<Step rID="T84">
+<Obj plainTxt="False" ><![CDATA[Add_Control_Frame]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:18]]></Time>
+<TimeTick>1285141338</TimeTick>
+<Step rID="T85">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:18]]></Time>
+<TimeTick>1285141338</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="155" Source="RSAM_Add_Control_Answers" SourceLine="101" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T86">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:19]]></Time>
+<TimeTick>1285141339</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="157" Source="RSAM_Add_Control_Answers" SourceLine="101" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T87">
+<Obj plainTxt="False" ><![CDATA["AutoAnswer_Table":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[GetRowWithCellText]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:19]]></Time>
+<TimeTick>1285141339</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="158" status="Passed" >
+<Disp><![CDATA["AutoAnswer_Table":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T88">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (7 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (7 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 7 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:19]]></Time>
+<TimeTick>1285141339</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="160" Source="RSAM_Add_Control_Answers" SourceLine="102" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T89">
+<Obj plainTxt="False" ><![CDATA["AutoAnswer_Table":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:19]]></Time>
+<TimeTick>1285141339</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="161" >
+<Disp><![CDATA["AutoAnswer_Table":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T90">
+<Obj plainTxt="False" ><![CDATA[[ ---- ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:19]]></Time>
+<TimeTick>1285141339</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="163" Source="RSAM_Add_Control_Answers" SourceLine="103" >
+<Disp><![CDATA[[ ---- ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T91">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (8 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (8 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 8 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:20]]></Time>
+<TimeTick>1285141340</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="165" Source="RSAM_Add_Control_Answers" SourceLine="104" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T92">
+<Obj plainTxt="False" ><![CDATA["AutoAnswers_DropDown"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (22 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebTable<br>html tag=TABLE<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (22 objects found)&nbsp;</FONT></u><br>
+micclass=WebTable<br>html tag=TABLE<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=G_xwcGridDropDownxxGrid<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>border=0<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:20]]></Time>
+<TimeTick>1285141340</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="166" Source="RSAM_Add_Control_Answers" SourceLine="104" >
+<Disp><![CDATA["AutoAnswers_DropDown"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T93">
+<Obj plainTxt="False" ><![CDATA["AutoAnswers_DropDown":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[GetRowWithCellText]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:20]]></Time>
+<TimeTick>1285141340</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="167" status="Passed" >
+<Disp><![CDATA["AutoAnswers_DropDown":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T94">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (8 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (8 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 8 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:21]]></Time>
+<TimeTick>1285141341</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="169" Source="RSAM_Add_Control_Answers" SourceLine="105" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T95">
+<Obj plainTxt="False" ><![CDATA["AutoAnswers_DropDown":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:21]]></Time>
+<TimeTick>1285141341</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="170" >
+<Disp><![CDATA["AutoAnswers_DropDown":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T96">
+<Obj plainTxt="False" ><![CDATA[[ Level  00     se ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:21]]></Time>
+<TimeTick>1285141341</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="172" Source="RSAM_Add_Control_Answers" SourceLine="106" >
+<Disp><![CDATA[[ Level  00     se ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T97">
+<Obj plainTxt="False" ><![CDATA["Add_Control_Frame"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (8 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (8 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 8 matches)</SPAN><br>title=Add or Modify Control Levels<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls_CLAns_P.aspx?Action=1&ConTypeID=6866&ConId=0&Conlevel=undefined&ConIdx=47<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:24]]></Time>
+<TimeTick>1285141344</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="175" Source="RSAM_Add_Control_Answers" SourceLine="86" >
+<Disp><![CDATA["Add_Control_Frame"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T98">
+<Obj plainTxt="False" ><![CDATA[Update.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:24]]></Time>
+<TimeTick>1285141344</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="176" Source="RSAM_Add_Control_Answers" SourceLine="86" >
+<Disp><![CDATA[Update.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="154" status="Passed" Source="RSAM_Add_Control_Answers" SourceLine="101" >
+<Disp><![CDATA[Add_Control_Frame]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="153" status="Passed" Source="RSAM_Add_Control_Answers" SourceLine="101" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="103" status="Passed" Source="RSAM_Add_Control_Answers" SourceLine="26" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="9/22/2010 - 13:12:05" eTime="9/22/2010 - 13:12:24" passed="2" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="102" status="Passed" >
+<Disp><![CDATA[RSAM_Add_Control_Answers Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T99">
+<AName><![CDATA[RSAM_Control_Relate_Objects]]></AName>
+<Step rID="T100">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:25]]></Time>
+<TimeTick>1285141345</TimeTick>
+<Step rID="T101">
+<Obj plainTxt="False" ><![CDATA[RSAM Administration]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:25]]></Time>
+<TimeTick>1285141345</TimeTick>
+<Step rID="T102">
+<Obj plainTxt="False" ><![CDATA[Control_ObjectTypes]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:25]]></Time>
+<TimeTick>1285141345</TimeTick>
+<Step rID="T103">
+<Obj plainTxt="False" ><![CDATA[Update.Object]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:25]]></Time>
+<TimeTick>1285141345</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="182" Source="RSAM_Control_Relate_Objects" SourceLine="13" >
+<Disp><![CDATA[Update.Object]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T104">
+<Obj plainTxt="False" ><![CDATA["Control_ObjectTypes"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.1307969641422867<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:26]]></Time>
+<TimeTick>1285141346</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="184" Source="RSAM_Control_Relate_Objects" SourceLine="13" >
+<Disp><![CDATA["Control_ObjectTypes"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T105">
+<Obj plainTxt="False" ><![CDATA[Cancel.Object]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:26]]></Time>
+<TimeTick>1285141346</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="185" Source="RSAM_Control_Relate_Objects" SourceLine="14" >
+<Disp><![CDATA[Cancel.Object]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T106">
+<Obj plainTxt="False" ><![CDATA["Control_ObjectTypes"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.1307969641422867<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:26]]></Time>
+<TimeTick>1285141346</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="186" Source="RSAM_Control_Relate_Objects" SourceLine="14" >
+<Disp><![CDATA["Control_ObjectTypes"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T107">
+<Obj plainTxt="False" ><![CDATA["Control_ObjectTypes"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.1307969641422867<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:26]]></Time>
+<TimeTick>1285141346</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="187" Source="RSAM_Control_Relate_Objects" SourceLine="15" >
+<Disp><![CDATA["Control_ObjectTypes"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T108">
+<Obj plainTxt="False" ><![CDATA["Control_ObjectTypes"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.1307969641422867<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="189" Source="RSAM_Control_Relate_Objects" SourceLine="26" >
+<Disp><![CDATA["Control_ObjectTypes"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T109">
+<Obj plainTxt="False" ><![CDATA["Related_Object_Types"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (54 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebTable<br>html tag=TABLE<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (54 objects found)&nbsp;</FONT></u><br>
+micclass=WebTable<br>html tag=TABLE<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=G_xwtRelatedxxctl1xxuwgObjectTypes<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>border=0<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="190" Source="RSAM_Control_Relate_Objects" SourceLine="26" >
+<Disp><![CDATA["Related_Object_Types"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T110">
+<Obj plainTxt="False" ><![CDATA["Related_Object_Types":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[GetRowWithCellText]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="191" status="Passed" >
+<Disp><![CDATA["Related_Object_Types":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T111">
+<Obj plainTxt="False" ><![CDATA["Control_ObjectTypes"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (6 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>name=<br>micclass=Frame<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (6 objects found)&nbsp;</FONT></u><br>
+micclass=Frame<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=<SPAN class=passed> (Used</SPAN>, 6 matches)</SPAN><br>title=Controls<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>url=http://192.168.1.208/RSAM_WEBADMIN_V7.2/WA_Controls.aspx?rand=0.1307969641422867<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="193" Source="RSAM_Control_Relate_Objects" SourceLine="27" >
+<Disp><![CDATA["Control_ObjectTypes"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T112">
+<Obj plainTxt="False" ><![CDATA["Related_Object_Types":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ChildItem]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="General" icon="5" nRep="194" status="Failed" >
+<Disp><![CDATA["Related_Object_Types":Function Call]]></Disp>
+<BtmPane vType="Mercury.SSHWeb">
+<Path><![CDATA[ZIP::Act3\Row0\ssf12.xml]]></Path>
+<ASHilite><![CDATA[Browser("RSAM Administration").Page("RSAM Administration").Frame("Control ObjectTypes").WebTable("Related Object Types")]]></ASHilite>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T113">
+<Obj plainTxt="False" ><![CDATA[Related_Object_Types]]></Obj>
+<Details plainTxt="False" ><![CDATA[The statement contains one or more invalid function arguments.]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<Step rID="T114">
+<Obj plainTxt="False" ><![CDATA[Related_Object_Types]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object's physical description:<br>Mercury Class = WebTable<br>Index = 20<br>Html Tag = TABLE<br>|Html Id = G_xwtRelatedxxctl1xxuwgObjectTypes<br>Border = 0<br>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="Replay" icon="19" nRep="196" status="Warning" nType="Description" Source="RSAM_Control_Relate_Objects" SourceLine="27" >
+<Disp><![CDATA[Related_Object_Types]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T115">
+<Obj plainTxt="False" ><![CDATA[ErrorMessage]]></Obj>
+<Details plainTxt="False" ><![CDATA[<SPAN class=text><div align=left><dl><b><u>Scenario</u>: </b>ErrorMessage<br><b><u>Defined in</u>: </b>D:\RSAM_Automation_FrameWork\RSAM_Recovery\RSAM_Recovery.qrs<br><b><u>Description</u>: </b><br><b><u>Post-recovery operation</u>: </b>Stop the test run.<br><br><b><u>Activated by trigger</u>:</b><dd><u>Type</u>: Test run error<br><u>The error string</u>: Any error</dd><dt><br><b><u>The current test step details</u>:</b><dd><u>Object</u>: WebTable("Related_Object_Types")<br><u>Method</u>: ChildItem<br><u>Arguments</u>: 0, 0, 0, 0<br><u>Result</u>: The specified value is not valid. It is either too small or too large</dd></dt></dl></div></SPAN>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<Step rID="T116">
+<Obj plainTxt="False" ><![CDATA[Enter]]></Obj>
+<Details plainTxt="False" ><![CDATA[<SPAN class=text><div align=left><b><u>Generate the keyboard event</u>:</b> Enter</div></SPAN>]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="Replay" icon="21" nRep="198" nType="Keyboard operation" Source="RSAM_Control_Relate_Objects" SourceLine="27" >
+<Disp><![CDATA[Enter]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T117">
+<Obj plainTxt="False" ><![CDATA[Stop]]></Obj>
+<Details plainTxt="False" ><![CDATA[Stop the test run.]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="Replay" icon="22" nRep="199" nType="Test" Source="RSAM_Control_Relate_Objects" SourceLine="27" >
+<Disp><![CDATA[Stop]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="20" nRep="197" nType="Error" Source="RSAM_Control_Relate_Objects" SourceLine="27" >
+<Disp><![CDATA[ErrorMessage]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="5" nRep="195" status="Warning" nType="Run Error" Source="RSAM_Control_Relate_Objects" SourceLine="27" >
+<Disp><![CDATA[Related_Object_Types]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T118">
+<Obj plainTxt="False" ><![CDATA[Stop Run]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run stopped by user.]]></Details>
+<Time><![CDATA[9/22/2010 - 13:12:27]]></Time>
+<TimeTick>1285141347</TimeTick>
+<NodeArgs eType="General" icon="23" nRep="200" >
+<Disp><![CDATA[Stop Run]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="181" status="Failed" Source="RSAM_Control_Relate_Objects" SourceLine="13" >
+<Disp><![CDATA[Control_ObjectTypes]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="180" status="Failed" Source="RSAM_Control_Relate_Objects" SourceLine="13" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="179" status="Failed" Source="RSAM_Control_Relate_Objects" SourceLine="13" >
+<Disp><![CDATA[RSAM Administration]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="9/22/2010 - 13:12:24" eTime="9/22/2010 - 13:12:27" passed="1" failed="1" warnings="1" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="178" status="Failed" >
+<Disp><![CDATA[RSAM_Control_Relate_Objects Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="7" status="Failed" >
+<Disp><![CDATA[RSAM_Control_Suite Iteration 1 (Row 1)]]></Disp>
+</NodeArgs>
+</DIter>
+<Summary sTime="9/22/2010 - 13:11:14" eTime="9/22/2010 - 13:12:27" passed="4" failed="1" warnings="1" ></Summary>
+<NodeArgs eType="StartTest" icon="1" nRep="3" status="Failed" >
+<Disp><![CDATA[Test RSAM_Control_Suite Summary]]></Disp>
+</NodeArgs>
+</Doc>
+</Report>
